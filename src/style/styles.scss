@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+@import '_variables.scss';
+
+html {
+  font-family: 'Manrope', sans-serif;
+  color: $text;
+  background: $bg;
+}
+
+.lb-item{
+  background: $card-bg;
+  padding: 20pt;
+  margin: 15pt;
+  overflow: auto
+}
+
+.lb-item h1, h2, h3, p{
+  display: inline;
+}
+
+.lb-item h1{
+  font-size: 2.1em;
+  margin-right: 30%;
+  left:5%;
+  float: left;
+  clear: left;
+}
+
+h2{
+  color: $text_subt;
+  float: right;
+  right:5%;
+  clear: right;
+}
+
+h3{
+  color: $text_subt;
+}
