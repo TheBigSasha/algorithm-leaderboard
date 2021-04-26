@@ -36,6 +36,7 @@ export default {
   methods: {
     toggleAnonymModal: function() {
       this.anonModal = !this.anonModal;
+      this.$gtag.event('deanonymize', { method: 'Google' })
     },
     verify: async function({ email }) {
       var axios = require('axios');
@@ -54,6 +55,7 @@ export default {
           .catch(function (error) {
             console.log(error);
           });
+      this.$gtag.event('verify', { method: 'Google' })
     },
     changeName: async function({ email, newName, token}) {
       var axios = require('axios');
@@ -81,6 +83,7 @@ export default {
             console.log(error);
           });
       this.appendToPropertyAndEscape();
+      this.$gtag.event('changeName', { method: 'Google' })
     }
   },
 }
