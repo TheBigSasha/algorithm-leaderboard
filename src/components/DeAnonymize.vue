@@ -61,7 +61,11 @@ export default {
 
 <style scoped>
 .contn{
+  max-width: min(90%,80vw);
+  max-height: min(90%,70vh);
   background: rgba(0,0,0,0.5);
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
   border-radius: 20px;
   padding: 20px;
 }
