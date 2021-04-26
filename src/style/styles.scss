@@ -5,6 +5,7 @@ html {
   font-family: 'Manrope', sans-serif;
   color: $text;
   background: $bg;
+  font-size: max(min(2vw, 1.5rem), 0.6em);
 }
 
 .lb-item{
@@ -20,7 +21,6 @@ html {
 
 .lb-item h1{
   font-size: 2.1em;
-  margin-right: 30%;
   left:5%;
   float: left;
   clear: left;
