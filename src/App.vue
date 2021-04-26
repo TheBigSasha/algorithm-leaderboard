@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/chesssudoku.svg" style="max-width:  1000px;">
-    <Leaderboard test="24601"/>
+    <Leaderboard test="2"/>
   </div>
 </template>
 
