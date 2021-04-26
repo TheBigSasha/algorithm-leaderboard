@@ -54,7 +54,6 @@ export default {
           .catch(function (error) {
             console.log(error);
           });
-      this.toggleAnonymModal();
     },
     changeName: async function({ email, newName, token}) {
       var axios = require('axios');
