@@ -10,10 +10,40 @@ html {
 
 .lb-item{
   background: $card-bg;
-  padding: 20pt;
+  padding: 10pt 20pt;
   margin: 15pt;
-  overflow: auto
+  overflow: auto;
+  border-radius: 20px;
 }
+
+.lb-item:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+  -webkit-filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+  transition: 0.5s;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.lb-item:first-child h1{
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 
 .lb-item h1, h2, h3, p{
   display: inline;
