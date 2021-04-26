@@ -1,3 +1,3 @@
-const BASE_URL = "http://10.0.0.51:4096"
+const BASE_URL = "http://24.48.98.4:4096"
 
 export {BASE_URL};
