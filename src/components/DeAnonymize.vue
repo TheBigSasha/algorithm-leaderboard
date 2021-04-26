@@ -1,5 +1,5 @@
 <template>
-  <v-overlay>
+  <v-overlay style="z-index: 9999">
     <div class="contn">
       <div>
         <h1>Change your anonymity</h1>

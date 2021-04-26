@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/chesssudoku.svg" style="max-width:  1000px;">
+    <img alt="Vue logo" src="./assets/chesssudoku.svg" style="position: fixed;
+    left: 50%;
+    top: max(15%,150px);
+    transform: translate(-50%, -50%);
+    width: min(600px, 95%);">
+    <div style="margin-bottom: 350px"></div>
     <v-row>
-
       <v-col>
-        <v-btn v-on:click="toggleAnonymModal">Change your anonymity</v-btn>
+        <v-btn v-on:click="toggleAnonymModal" style="font-weight: bolder; background: white; font-size: min(1.3rem, 16px); padding: 16px">Change your anonymity</v-btn>
       </v-col>
     </v-row>
     <DeAnonymize

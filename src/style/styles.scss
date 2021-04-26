@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 @import '_variables.scss';
 
 html {
@@ -10,23 +11,21 @@ html {
   font-size: max(min(2vw, 1.5rem), 0.6em);
 }
 
+
 .lb-item{
   background: $card-bg;
   padding: 10pt 20pt;
-  margin: 15pt;
+  margin: 0 15pt 0;
   overflow: auto;
-  border-radius: 20px;
+  filter: drop-shadow(0 1.5px 3px rgba(0,0,0,0.5));
+  -webkit-filter: drop-shadow(0 1.5px 5px rgba(0,0,0,0.5));
+
 }
 
-.lb-item:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
-  -webkit-filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
-  transition: 0.5s;
-}
 
 
 .lb-item:first-child h1{
+  font-weight: 800;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;  text-shadow: none;
@@ -35,16 +34,54 @@ html {
   background-clip: text;
 }
 
+.lb-item:first-child h2{
+  font-weight: 800;
+}
+
+.lb-item:nth-child(n+2) h2{
+  color: #525252; //Todo: fix hard code
+}
+
+.lb-item:hover {
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+  -webkit-filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+  transition: 0.5s;
+}
+
+@mixin descending-z-index($count: 30){
+  position: relative;
+  .lb-item{
+    position: relative;
+    $target: 0;
+    $index: $count;
+    @while $index > 0 {
+      &:nth-child(#{$target}){ z-index: #{$index}; }
+      $target: $target + 1;
+      $index: $index - 1;
+    }
+  }
+}
+
+.lb-cont{
+  @include descending-z-index;
+}
+
+.lb-item{
+  @include descending-z-index(100);
+}
 
 .lb-item h1, h2, h3, p{
   display: inline;
 }
 
 .lb-item h1{
+  font-family:'JetBrains Mono', monospace;
+  font-weight: 650;
   font-size: 2.1em;
   left:5%;
   float: left;
   clear: left;
+  alignment-baseline: center;
 }
 
 h2{
@@ -52,8 +89,18 @@ h2{
   float: right;
   right:5%;
   clear: right;
+  alignment-baseline: center;
 }
 
 h3{
   color: $text_subt;
+}
+
+@media(max-width: 400px){
+  .lb-item h1, h2, h3, p{
+    display: block;
+    alignment: center;
+    align-self: center;
+    text-align: center;
+  }
 }

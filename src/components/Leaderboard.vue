@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="lb-cont">
     <LeaderboardEntry v-for="entry in LeaderboardEntries" :key="entry.testScore"
     v-bind:score="entry.testScore" v-bind:name="entry.name" v-bind:timestamp="entry.timestamp"
     ></LeaderboardEntry>
