@@ -17,7 +17,10 @@
         @verify="verify($event)"
         @changeName="changeName($event)"
     ></DeAnonymize>
-    <Leaderboard test="2"/>
+    <Leaderboard test="4"/>
+    <p>
+      <i>The test version is subject to change. If you had a higher score before, it is because the test got harder, not because your code got worse.</i>
+    </p>
   </div>
 </template>
 
