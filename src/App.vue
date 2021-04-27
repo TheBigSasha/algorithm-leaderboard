@@ -18,9 +18,18 @@
         @changeName="changeName($event)"
     ></DeAnonymize>
     <Leaderboard test="4"/>
-    <p>
-      <i>The test version is subject to change. If you had a higher score before, it is because the test got harder, not because your code got worse.</i>
-    </p>
+    <div class="bottom">
+      <p>
+        <i>The test version is subject to change. If you had a higher score before, it is because the test got harder, not because your code got worse.</i>
+      </p>
+      <br/>
+      <p><b>Speed Testing Tools </b></p>
+      <a href="https://github.com/TheBigSasha/RuntimeTester">Runtime Tester</a>
+      <a href="https://www.jetbrains.com/help/idea/java-flight-recorder.html">Java Flight Recorder</a>
+      <a href="https://www.jetbrains.com/help/idea/using-breakpoints.html">Breakpoints</a>
+      <a href="https://www.youtube.com/watch?v=j1KxlLs-i0I&list=PLFvevpoGcNCtB7l_SlJAPU29G3ABQqJui&index=26&ab_channel=COMP250">Speed Testing Tutorial</a>
+
+    </div>
   </div>
 </template>
 
@@ -104,5 +113,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.bottom a {
+  margin-left: 15px;
+}
+
+.bottom {
+  margin-bottom: 25px;
 }
 </style>
