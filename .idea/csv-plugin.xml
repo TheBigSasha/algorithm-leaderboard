@@ -31,6 +31,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\components\Leaderboard.vue">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\components\LeaderboardEntry.vue">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\components\UserInformation.vue">
           <value>
             <Attribute>

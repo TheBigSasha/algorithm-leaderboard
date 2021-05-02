@@ -42,11 +42,8 @@ export default {
       if (this.user === null || this.user == null || this.user === "AVG") {
         axios.get(BASE_URL + "/runs/" + this.testVersion + "?average=true")
             .then(response => {
-              console.log(response.data)
               this.testResults = response.data.map(datum => datum.testScore)
               this.labels = response.data.map(datum => formatDate(datum.timestamp))
-              console.log(this.labels)
-              console.log(this.testResults)
               this.loaded = true
             })
             .catch(err => {
@@ -58,11 +55,8 @@ export default {
       } else if (this.user === "ALL"){
         axios.get(BASE_URL + "/runs/" + this.testVersion)
             .then(response => {
-              console.log(response.data)
               this.testResults = response.data.map(datum => datum.testScore)
               this.labels = response.data.map(datum => formatDate(datum.timestamp))
-              console.log(this.labels)
-              console.log(this.testResults)
               this.loaded = true
             })
             .catch(err => {
@@ -75,11 +69,8 @@ export default {
 
         axios.get(BASE_URL + "/runs/" + this.testVersion + "/user/" + this.user)
             .then(response => {
-              console.log(response.data)
               this.testResults = response.data.map(datum => datum.testScore)
               this.labels = response.data.map(datum => formatDate(datum.timestamp))
-              console.log(this.labels)
-              console.log(this.testResults)
               this.loaded = true
             })
             .catch(err => {
