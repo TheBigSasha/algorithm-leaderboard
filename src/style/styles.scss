@@ -11,6 +11,10 @@ html {
   font-size: max(min(2vw, 1.5rem), 0.6em);
 }
 
+select{
+  font-size: 1.4em;
+}
+
 
 .lb-item{
   background: $card-bg;

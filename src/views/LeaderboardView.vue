@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <Leaderboard :test="this.test"/>
+    <select v-model="chartVer"  @change="resetChart">
+      <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.text">
+        {{ option.text }}
+      </option>
+    </select>
+    <Leaderboard v-if="render" :test="this.chartVer"/>
   </div>
 </template>
 
@@ -14,6 +19,13 @@ export default {
   data() {
     return {
       anonModal: false,
+      chartVer: this.test,
+      render: true,
+      options: [
+        { text: 'CodePost V1', value: '2' },
+        { text: 'CodePost V2', value: '4' },
+        { text: 'Student Tester', value: '463' }
+      ]
     };
   },
   components: {
@@ -23,6 +35,14 @@ export default {
     toggleAnonymModal: function() {
       this.anonModal = !this.anonModal;
       this.$gtag.event('deanonymize', { method: 'Google' })
+    },
+    resetChart() {
+      console.log("updating chart")
+      //This is a terrible way to force a refresh, but I can't help being a gemeni :)
+      this.render = false;
+      this.$nextTick(() => {
+        this.render = true;
+      });
     },
     verify: async function({ email }) {
       var axios = require('axios');

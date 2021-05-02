@@ -22,6 +22,7 @@
       <p>
         <i>The test version is subject to change. If you had a higher score before, it is because the test got harder, not because your code got worse.</i>
       </p>
+      <br>
 
       <p><b>Speed Testing Tools </b></p>
       <a href="https://github.com/TheBigSasha/RuntimeTester">Runtime Tester</a>
