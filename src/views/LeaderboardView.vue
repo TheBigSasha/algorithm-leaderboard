@@ -1,51 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/chesssudoku.svg" style="position: fixed;
-    left: 50%;
-    top: max(15%,150px);
-    transform: translate(-50%, -50%);
-    width: min(600px, 95%);">
-    <div style="margin-bottom: 350px"></div>
-    <v-row>
-      <v-col>
-        <v-btn v-on:click="toggleAnonymModal" style="font-weight: bolder; background: white; font-size: min(1.3rem, 16px); padding: 16px">Change your anonymity</v-btn>
-      </v-col>
-    </v-row>
-    <DeAnonymize
-        v-if="this.anonModal"
-        @modalClose="toggleAnonymModal"
-        @verify="verify($event)"
-        @changeName="changeName($event)"
-    ></DeAnonymize>
-    <router-view/>
-    <div class="bottom">
-      <p>
-        <i>The test version is subject to change. If you had a higher score before, it is because the test got harder, not because your code got worse.</i>
-      </p>
-      <br/>
-      <p><b>Speed Testing Tools </b></p>
-      <a href="https://github.com/TheBigSasha/RuntimeTester">Runtime Tester</a>
-      <a href="https://www.jetbrains.com/help/idea/java-flight-recorder.html">Java Flight Recorder</a>
-      <a href="https://www.jetbrains.com/help/idea/using-breakpoints.html">Breakpoints</a>
-      <a href="https://www.youtube.com/watch?v=j1KxlLs-i0I&list=PLFvevpoGcNCtB7l_SlJAPU29G3ABQqJui&index=26&ab_channel=COMP250">Speed Testing Tutorial</a>
-
-    </div>
+    <Leaderboard :test="this.test"/>
   </div>
 </template>
 
 <script>
-import DeAnonymize from "./components/DeAnonymize";
+import Leaderboard from '../components/Leaderboard.vue'
 import {BASE_URL} from "@/config/dev.env";
 
 export default {
   name: 'App',
+  props:['test'],
   data() {
     return {
       anonModal: false,
     };
   },
   components: {
-    DeAnonymize,
+    Leaderboard
   },
   methods: {
     toggleAnonymModal: function() {
@@ -82,7 +54,7 @@ export default {
           headers: {}
         };
       }else{
-         config = {
+        config = {
           method: 'post',
           url: BASE_URL + '/student?email=' + email + '&token=' + token,
           headers: {}
