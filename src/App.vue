@@ -4,25 +4,25 @@
     left: 50%;
     top: max(15%,150px);
     transform: translate(-50%, -50%);
-    width: min(600px, 95%);">
-    <div style="margin-bottom: 350px"></div>
-    <v-row>
-      <v-col>
-        <v-btn v-on:click="toggleAnonymModal" style="font-weight: bolder; background: white; font-size: min(1.3rem, 16px); padding: 16px">Change your anonymity</v-btn>
-      </v-col>
-    </v-row>
+    width: min(600px, 95%);
+    z-index: -1000;
+    ">
+    <div style="margin-bottom: 450px"></div>
     <DeAnonymize
         v-if="this.anonModal"
         @modalClose="toggleAnonymModal"
         @verify="verify($event)"
         @changeName="changeName($event)"
     ></DeAnonymize>
-    <router-view/>
+    <router-view style="z-index: 7000;"/>
     <div class="bottom">
+      <br/>
+      <v-btn v-on:click="toggleAnonymModal" style="font-weight: bolder; background: white; font-size: min(1.3rem, 16px); padding: 16px">Change your anonymity</v-btn>
+      <br/>
       <p>
         <i>The test version is subject to change. If you had a higher score before, it is because the test got harder, not because your code got worse.</i>
       </p>
-      <br/>
+
       <p><b>Speed Testing Tools </b></p>
       <a href="https://github.com/TheBigSasha/RuntimeTester">Runtime Tester</a>
       <a href="https://www.jetbrains.com/help/idea/java-flight-recorder.html">Java Flight Recorder</a>

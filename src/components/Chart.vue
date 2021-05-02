@@ -62,7 +62,7 @@ export default {
             label: (tooltipItem, data) => {
               let dataset = data.datasets[tooltipItem.datasetIndex]
               let currentValue = dataset.data[tooltipItem.index]
-              return `📦 ${currentValue.toLocaleString()}`
+              return `🚀 ${currentValue.toLocaleString()}`
             }
           }
         },

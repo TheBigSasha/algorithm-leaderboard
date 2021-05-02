@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <line-chart v-if="loaded" :chart-data="downloads" :chart-labels="labels"></line-chart>
+    <line-chart v-if="loaded" :chart-data="testResults" :chart-labels="labels"></line-chart>
   </div>
 </template>
 
@@ -13,13 +13,12 @@ export default {
   components: {
     LineChart
   },
-  props: ['user'],
+  props: ['user','testVersion'],
   data () {
     return {
-      packageName: '',
       period: 'last-month',
       loaded: false,
-      downloads: [],
+      testResults: [],
       labels: [],
       showError: false,
       errorMessage: 'Please enter a package name'
@@ -35,16 +34,25 @@ export default {
     },
     requestData () {
       this.resetState()
-      axios.get(BASE_URL + "/history/"`${this.user}`)
+
+      function formatDate(timestamp) {
+        return timestamp.toString().replace("T", " ").substr(0,16)
+      }
+
+      axios.get(BASE_URL + "/runs/" + this.testVersion + "/user/" + this.user)
           .then(response => {
             console.log(response.data)
-            this.downloads = response.data.downloads.map(download => download.downloads)
-            this.labels = response.data.downloads.map(download => download.day)
+            this.testResults = response.data.map(datum => datum.testScore)
+            this.labels = response.data.map(datum => formatDate(datum.timestamp))
+            console.log(this.labels)
+            console.log(this.testResults)
             this.loaded = true
           })
           .catch(err => {
             this.errorMessage = err.response.data.error
             this.showError = true
+            console.log("Error!!!!!!!!!!!!!!!!!!!!!!")
+            console.log(this.errorMessage)
           })
     },
   }
