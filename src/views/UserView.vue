@@ -2,7 +2,7 @@
   <div class="chartArea" >
     <UserInformation :user="user"></UserInformation>
     <div style="margin-top: 50px">
-      <h1>My scores over time</h1>
+      <h1>Your scores over time</h1>
       <select v-model="chartVer"  @change="resetChart">
         <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.text">
           {{ option.text }}
