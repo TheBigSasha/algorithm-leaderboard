@@ -6,12 +6,17 @@
       </option>
     </select>
     <Leaderboard v-if="render" :test="this.chartVer"/>
+    <div class="lb-card">
+      <h1>Class average over time</h1>
+      <ChartContainer  v-if="render" user='AVG' :test-version="chartVer"></ChartContainer>
+    </div>
   </div>
 </template>
 
 <script>
 import Leaderboard from '../components/Leaderboard.vue'
 import {BASE_URL} from "@/config/dev.env";
+import ChartContainer from "../components/ChartContainer";
 
 export default {
   name: 'App',
@@ -29,7 +34,8 @@ export default {
     };
   },
   components: {
-    Leaderboard
+    Leaderboard,
+    ChartContainer
   },
   methods: {
     toggleAnonymModal: function() {

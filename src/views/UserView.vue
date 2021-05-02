@@ -16,6 +16,13 @@
         </option>
       </select>
       <ChartContainer v-if="render" user='AVG' :test-version="chartVer"></ChartContainer>
+      <h1>Submissions over time</h1>
+      <select v-model="chartVer"  @change="resetChart">
+        <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.text">
+          {{ option.text }}
+        </option>
+      </select>
+      <ChartContainer v-if="render" user='ALL' :test-version="chartVer"></ChartContainer>
     </div>
   </div>
 </template>

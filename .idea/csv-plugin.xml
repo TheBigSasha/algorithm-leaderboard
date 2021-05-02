@@ -45,6 +45,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\views\LeaderboardView.vue">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\views\UserView.vue">
           <value>
             <Attribute>
