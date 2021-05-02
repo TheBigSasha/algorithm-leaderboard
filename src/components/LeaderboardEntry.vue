@@ -1,7 +1,7 @@
 <template>
-  <div class="lb-item">
-    <h1>{{score}}</h1>
-    <h2>{{name}}</h2>
+  <div class="lb-item" @click="$emit('nameClicked')">
+    <h1 >{{score}}</h1>
+    <h2 @click="$emit('nameClicked')">{{name}}</h2>
   </div>
 </template>
 

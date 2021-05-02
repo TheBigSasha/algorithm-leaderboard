@@ -1,12 +1,22 @@
 <template>
   <div id="app">
-    <Leaderboard :test="this.test"/>
+    <select v-model="chartVer"  @change="resetChart">
+      <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.text">
+        {{ option.text }}
+      </option>
+    </select>
+    <Leaderboard v-if="render" :test="this.chartVer"/>
+    <div class="lb-card">
+      <h1>Class average over time</h1>
+      <ChartContainer  v-if="render" user='AVG' :test-version="chartVer"></ChartContainer>
+    </div>
   </div>
 </template>
 
 <script>
 import Leaderboard from '../components/Leaderboard.vue'
 import {BASE_URL} from "@/config/dev.env";
+import ChartContainer from "../components/ChartContainer";
 
 export default {
   name: 'App',
@@ -14,15 +24,31 @@ export default {
   data() {
     return {
       anonModal: false,
+      chartVer: this.test,
+      render: true,
+      options: [
+        { text: 'CodePost V1', value: '2' },
+        { text: 'CodePost V2', value: '4' },
+        { text: 'Student Tester', value: '463' }
+      ]
     };
   },
   components: {
-    Leaderboard
+    Leaderboard,
+    ChartContainer
   },
   methods: {
     toggleAnonymModal: function() {
       this.anonModal = !this.anonModal;
       this.$gtag.event('deanonymize', { method: 'Google' })
+    },
+    resetChart() {
+      console.log("updating chart")
+      //This is a terrible way to force a refresh, but I can't help being a gemeni :)
+      this.render = false;
+      this.$nextTick(() => {
+        this.render = true;
+      });
     },
     verify: async function({ email }) {
       var axios = require('axios');
