@@ -30,6 +30,13 @@
       <a href="https://www.jetbrains.com/help/idea/using-breakpoints.html">Breakpoints</a>
       <a href="https://www.youtube.com/watch?v=j1KxlLs-i0I&list=PLFvevpoGcNCtB7l_SlJAPU29G3ABQqJui&index=26&ab_channel=COMP250">Speed Testing Tutorial</a>
 
+      <br/>
+
+      <p><b>Other Links</b></p>
+      <a href="https://github.com/TheBigSasha/algorithm-leaderboard">Source Code</a>
+      <a href="https://github.com/TheBigSasha/leaderboard-server">Backend</a>
+      <a href="https://sasharesume.com/">Author</a>
+
     </div>
   </div>
 </template>
