@@ -36,24 +36,43 @@ export default {
       this.resetState()
 
       function formatDate(timestamp) {
-        return timestamp.toString().replace("T", " ").substr(0,16)
+        return timestamp.toString().replace("T", " ").substr(0, 16)
       }
 
-      axios.get(BASE_URL + "/runs/" + this.testVersion + "/user/" + this.user)
-          .then(response => {
-            console.log(response.data)
-            this.testResults = response.data.map(datum => datum.testScore)
-            this.labels = response.data.map(datum => formatDate(datum.timestamp))
-            console.log(this.labels)
-            console.log(this.testResults)
-            this.loaded = true
-          })
-          .catch(err => {
-            this.errorMessage = err.response.data.error
-            this.showError = true
-            console.log("Error!!!!!!!!!!!!!!!!!!!!!!")
-            console.log(this.errorMessage)
-          })
+      if (this.user === null || this.user == null || this.user === "AVG") {
+        axios.get(BASE_URL + "/runs/" + this.testVersion + "?average=true")
+            .then(response => {
+              console.log(response.data)
+              this.testResults = response.data.map(datum => datum.testScore)
+              this.labels = response.data.map(datum => formatDate(datum.timestamp))
+              console.log(this.labels)
+              console.log(this.testResults)
+              this.loaded = true
+            })
+            .catch(err => {
+              this.errorMessage = err.response.data.error
+              this.showError = true
+              console.log("Error!!!!!!!!!!!!!!!!!!!!!!")
+              console.log(this.errorMessage)
+            })
+      } else {
+
+        axios.get(BASE_URL + "/runs/" + this.testVersion + "/user/" + this.user)
+            .then(response => {
+              console.log(response.data)
+              this.testResults = response.data.map(datum => datum.testScore)
+              this.labels = response.data.map(datum => formatDate(datum.timestamp))
+              console.log(this.labels)
+              console.log(this.testResults)
+              this.loaded = true
+            })
+            .catch(err => {
+              this.errorMessage = err.response.data.error
+              this.showError = true
+              console.log("Error!!!!!!!!!!!!!!!!!!!!!!")
+              console.log(this.errorMessage)
+            })
+      }
     },
   }
 }

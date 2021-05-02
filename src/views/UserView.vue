@@ -9,6 +9,8 @@
         </option>
       </select>
       <ChartContainer v-if="render" :user="user" :test-version="chartVer"></ChartContainer>
+      <h1>Class average over time</h1>
+      <ChartContainer v-if="render" user='AVG' :test-version="chartVer"></ChartContainer>
     </div>
   </div>
 </template>
