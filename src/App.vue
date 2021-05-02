@@ -6,7 +6,7 @@
     transform: translate(-50%, -50%);
     width: min(600px, 95%);
     z-index: -1000;
-    ">
+    " @click="goHome">
     <div style="margin-bottom: 450px"></div>
     <DeAnonymize
         v-if="this.anonModal"
@@ -37,6 +37,7 @@
 <script>
 import DeAnonymize from "./components/DeAnonymize";
 import {BASE_URL} from "@/config/dev.env";
+import router from "./router";
 
 export default {
   name: 'App',
@@ -83,7 +84,7 @@ export default {
           headers: {}
         };
       }else{
-         config = {
+        config = {
           method: 'post',
           url: BASE_URL + '/student?email=' + email + '&token=' + token,
           headers: {}
@@ -99,6 +100,9 @@ export default {
           });
       this.appendToPropertyAndEscape();
       this.$gtag.event('changeName', { method: 'Google' })
+    },
+    goHome(){
+      router.push("/")
     }
   },
 }
