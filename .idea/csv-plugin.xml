@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\components\ChartContainer.vue">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\components\DeAnonymize.vue">
           <value>
             <Attribute>
