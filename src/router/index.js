@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import LeaderboardView from "../views/LeaderboardView";
 import UserView from "../views/UserView";
+import StoriesView from "../views/StoriesView";
 Vue.use(VueRouter);
 
 const routes = [
@@ -10,6 +11,12 @@ const routes = [
         name: "Leaderboard",
         component: LeaderboardView,
         props: {test:4}
+    },
+    {
+        path: "/stories",
+        name: "Stories",
+        component: StoriesView,
+        props: true
     },
     {
         path: "/:test",
@@ -22,7 +29,8 @@ const routes = [
         name: "My Assignment",
         component: UserView,
         props: true
-    },
+    }
+
 ];
 
 const router = new VueRouter({
