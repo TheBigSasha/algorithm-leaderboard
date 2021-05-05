@@ -1,11 +1,15 @@
 <template>
   <div id="app">
+    <h1><router-link to="/stories/">See How They Did It</router-link></h1>
+    <br/>
+    <br/>
     <select v-model="chartVer"  @change="resetChart">
       <option v-for="option in options" v-bind:value="option.value" v-bind:key="option.text">
         {{ option.text }}
       </option>
     </select>
     <Leaderboard v-if="render" :test="this.chartVer"/>
+
     <div class="lb-card">
       <h1>Class average over time</h1>
       <ChartContainer  v-if="render" user='AVG' :test-version="chartVer"></ChartContainer>
