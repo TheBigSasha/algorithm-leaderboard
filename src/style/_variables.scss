@@ -10,13 +10,12 @@
   }
 }
 
-
 $text: black;
 $accent: cyan;
 $bg: #dcdcdc;
 $card-bg: white;
 $text_subt: #3e3e3e;
-@media(prefers-color-scheme: dark){
+@media (prefers-color-scheme: dark) {
   $card-bg: #000038;
   $bg: black;
   $text: white;

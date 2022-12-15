@@ -1,107 +1,113 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-@import '_variables.scss';
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
+@import "_variables.scss";
 
 html {
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   color: $text;
   background: $bg;
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;  text-shadow: none;
+  animation: gradient 15s ease infinite;
+  text-shadow: none;
   font-size: max(min(2vw, 1.5rem), 0.6em);
 }
 
-select{
+select {
   font-size: 1.4em;
 }
 
-
-.lb-item{
+.lb-item {
   background: $card-bg;
   padding: 10pt 20pt;
   margin: 0 15pt 0;
   overflow: auto;
-  filter: drop-shadow(0 1.5px 3px rgba(0,0,0,0.5));
-  -webkit-filter: drop-shadow(0 1.5px 5px rgba(0,0,0,0.5));
-
+  filter: drop-shadow(0 1.5px 3px rgba(0, 0, 0, 0.5));
+  -webkit-filter: drop-shadow(0 1.5px 5px rgba(0, 0, 0, 0.5));
 }
 
-
-
-.lb-item:first-child h1{
+.lb-item:first-child h1 {
   font-weight: 800;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;  text-shadow: none;
+  animation: gradient 15s ease infinite;
+  text-shadow: none;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
 }
 
-.lb-item:first-child h2{
+.lb-item:first-child h2 {
   font-weight: 800;
 }
 
-.lb-item:nth-child(n+2) h2{
+.lb-item:nth-child(n + 2) h2 {
   color: #525252; //Todo: fix hard code
 }
 
 .lb-item:hover {
-  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
-  -webkit-filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+  -webkit-filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
   transition: 0.5s;
 }
 
-@mixin descending-z-index($count: 30){
+@mixin descending-z-index($count: 30) {
   position: relative;
-  .lb-item{
+  .lb-item {
     position: relative;
     $target: 0;
     $index: $count;
     @while $index > 0 {
-      &:nth-child(#{$target}){ z-index: #{$index}; }
+      &:nth-child(#{$target}) {
+        z-index: #{$index};
+      }
       $target: $target + 1;
       $index: $index - 1;
     }
   }
 }
 
-.lb-cont{
+.lb-cont {
   @include descending-z-index;
 }
 
-.lb-item{
+.lb-item {
   @include descending-z-index(100);
 }
 
-.lb-item h1, h2, h3, p{
+.lb-item h1,
+h2,
+h3,
+p {
   display: inline;
 }
 
-.lb-item h1{
-  font-family:'JetBrains Mono', monospace;
+.lb-item h1 {
+  font-family: "JetBrains Mono", monospace;
   font-weight: 650;
   font-size: 2.1em;
-  left:5%;
+  left: 5%;
   float: left;
   clear: left;
   alignment-baseline: center;
 }
 
-h2{
+h2 {
   color: $text_subt;
   float: right;
-  right:5%;
+  right: 5%;
   clear: right;
   alignment-baseline: center;
 }
 
-h3{
+h3 {
   color: $text_subt;
 }
 
-@media(max-width: 400px){
-  .lb-item h1, h2, h3, p{
+@media (max-width: 400px) {
+  .lb-item h1,
+  h2,
+  h3,
+  p {
     display: block;
     alignment: center;
     align-self: center;
@@ -110,5 +116,5 @@ h3{
 }
 
 code {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
 }
